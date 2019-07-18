@@ -1,0 +1,30 @@
+.hello-world {
+    position: relative;
+    color: #2c3e50;
+    font-size: 3em;
+}
+.hello-world:before {
+    position: absolute;
+    display: block;
+    content: "";
+    top: -600%;
+    height: 600%; /* 6X of .hello-world */
+    width: 100%;
+    background: url(hello.svg) 50% 50% / 70% no-repeat;
+
+}
+.hello-world:after {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    bottom: -10%;
+    left: 0;
+    height: 40%;
+    width: 100%;
+    background: #f0898b;
+}
+
+.hello-world__tech {
+    font-weight: 700;
+    font-style: italic;
+}
