@@ -1,0 +1,25 @@
+.counter{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter__center{
+  text-align: center;
+}
+
+.counter__count{
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.counter__buttons{
+  margin-left: -20px;
+}
+
+
+.counter__button{
+  margin-left: 20px;
+  font-size: 24px;
+}
