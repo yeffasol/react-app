@@ -1,7 +1,5 @@
 import React from 'react';
 import './Counter.css';
-// import Store from './store';
-
 import createStore from './redux';
 
 const initialState = {
@@ -22,12 +20,18 @@ function reducer(state, action) {
 
 }
 
-const incrementAction = {type: "INCREMENT", amount: 1};
 
+function increment(amount) {
+    return {type: "INCREMENT", amount};
+}
 
-const decrementAction = {type: "DECREMENT", amount: 1};
+function decrement(amount) {
+    return {type: "DECREMENT", amount};
+}
 
-const resetAction = {type: "RESET"};
+function reset() {
+    return {type: "RESET"};
+}
 
 const store = createStore(reducer, initialState);
 
@@ -44,15 +48,17 @@ export default class Counter extends React.Component {
     }
 
     increment() {
-        store.dispatch(incrementAction);
+        let amount = parseInt(this.refs.amount.value || 1);
+        store.dispatch(increment(amount));
     }
 
     decrement() {
-        store.dispatch(decrementAction);
+        let amount = parseInt(this.refs.amount.value || 1);
+        store.dispatch(decrement(amount));
     }
 
     reset() {
-        store.dispatch(resetAction);
+        store.dispatch(reset());
     }
 
     render() {
@@ -64,9 +70,11 @@ export default class Counter extends React.Component {
 
                     <div className="counter__buttons">
                         <button className="counter__button counter__decrement" onClick={this.decrement}>-</button>
-                        <button className="counter__button button-outline counter__reset" onClick={this.reset}>R</button>
+                        <button className="counter__button button-outline counter__reset" onClick={this.reset}>R
+                        </button>
                         <button className="counter__button counter__increment" onClick={this.increment}>+</button>
                     </div>
+                    <input type="text" ref="amount" defaultValue="2"/>
                 </div>
             </div>
         );
