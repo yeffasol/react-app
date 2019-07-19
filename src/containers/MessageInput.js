@@ -1,14 +1,14 @@
 import React from "react";
 import store from "../store";
-import { setTypingValue, sendMessage } from "../actions";
+import {setTypingValue, sendMessage} from "../actions";
 import "./MessageInput.css";
 
-const MessageInput = ({ value }) => {
+const MessageInput = ({value}) => {
     const state = store.getState();
 
     const handleSubmit = e => {
         e.preventDefault();
-        const  typing= state.typing;
+        const typing = state.typing;
         const activeUserId = state.activeUserId;
 
         store.dispatch(sendMessage(typing, activeUserId));

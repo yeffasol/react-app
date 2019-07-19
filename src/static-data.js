@@ -36,6 +36,7 @@ export function generateUser() {
         user_id: shortid.generate()
     };
 }
+
 /**
  * @returns {Object} - a new message object
  */
@@ -46,6 +47,7 @@ function generateMsg(number) {
         is_user_msg: faker.random.boolean()
     };
 }
+
 /**
  *
  * @param {Number} numberOfUsers - the number of users to be generated
@@ -53,9 +55,9 @@ function generateMsg(number) {
  * @returns {Array} - an array of user objects with length n = numberOfUsers
  */
 function generateUsers(numberOfUsers) {
-    return Array.from({ length: numberOfUsers }, () => generateUser());
+    return Array.from({length: numberOfUsers}, () => generateUser());
 }
 
 function generateMsgs(numberOfMsgs) {
-    return Array.from({ length: numberOfMsgs }, (v, i) => generateMsg(i));
+    return Array.from({length: numberOfMsgs}, (v, i) => generateMsg(i));
 }
