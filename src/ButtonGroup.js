@@ -1,24 +1,32 @@
 import React from "react";
-import {store} from "./store";
+import {connect} from "react-redux";
 import {setTechnology} from './actions';
 
-function dispatchBtnAction(e) {
-    const tech = e.target.dataset.tech;
-    store.dispatch(setTechnology(tech));
-}
-const ButtonGroup = ({ technologies }) => (
-    <div>
-        {technologies.map((tech, i) => (
-            <button
-                data-tech={tech}
-                key={`btn-${i}`}
-                className="hello-btn"
-                onClick={dispatchBtnAction}
-            >
-                {tech}
-            </button>
-        ))}
-    </div>
-);
+const ButtonGroup = ({technologies, setTechnology}) => {
 
-export default ButtonGroup;
+    function dispatchBtnAction(e) {
+        const technology = e.target.dataset.technology;
+        setTechnology(technology);
+    }
+
+    return (
+        <div>
+            {technologies.map((technology, i) => (
+                <button
+                    data-technology={technology}
+                    key={`btn-${i}`}
+                    className="hello-btn"
+                    onClick={dispatchBtnAction}
+                >
+                    {technology}
+                </button>
+            ))}
+        </div>
+    );
+
+};
+
+export default connect(
+    null,
+    {setTechnology}
+)(ButtonGroup);

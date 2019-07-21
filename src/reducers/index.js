@@ -1,12 +1,6 @@
-export default (state, action) => {
-    switch (action.type) {
-        case "SET_TECHNOLOGY":
-            return {
-                ...state,
-                tech: action.text
-            };
+import {combineReducers} from "redux";
+import technology from './technology';
 
-        default:
-            return state;
-    }
-}
+export default combineReducers({
+    technology
+});
