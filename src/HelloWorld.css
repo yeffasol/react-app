@@ -2,17 +2,9 @@
     position: relative;
     color: #2c3e50;
     font-size: 3em;
+    margin-bottom: 20px;
 }
-.hello-world:before {
-    position: absolute;
-    display: block;
-    content: "";
-    top: -600%;
-    height: 600%; /* 6X of .hello-world */
-    width: 100%;
-    background: url(hello.svg) 50% 50% / 70% no-repeat;
 
-}
 .hello-world:after {
     position: absolute;
     z-index: -1;
@@ -27,4 +19,35 @@
 .hello-world__tech {
     font-weight: 700;
     font-style: italic;
+}
+
+.hello-btns {
+    margin: 50px 0 0 0;
+}
+
+.hello-btn {
+    color: #ffffff;
+    background: #6c63ff;
+    border-radius: 30px;
+    border: 0;
+    outline: 0;
+    font-size: 0.8em;
+    padding: 10px 15px;
+    margin: 0 10px;
+    min-width: 85px;
+
+}
+
+.hello-btn:hover {
+    cursor: pointer;
+}
+
+.hello-btn:active {
+    /* color: black; */
+}
+
+@media screen and (max-width: 576px) {
+    .hello-world {
+        font-size: 8vw;
+    }
 }
