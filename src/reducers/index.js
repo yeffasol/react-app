@@ -1,12 +1,8 @@
-export default (state, action) => {
-    switch (action.type) {
-        case "SET_AMOUNT":
-            return {
-                ...state,
-                totalAmount: state.totalAmount + action.amount
-            };
+import {combineReducers} from "redux";
+import amount from './amount';
+import username from './username';
 
-        default:
-            return state;
-    }
-}
+export default combineReducers({
+    amount,
+    username
+});
